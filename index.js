@@ -33,8 +33,13 @@ async function get_stones() {
 }
 
 async function get_user(address) {
-    let result = await contract.get_user(address);
-    return result;
+    try{
+      let result = await contract.get_user(address);
+        return result;  
+    } catch (e){
+        return e;
+    }
+    
 }
 
 
