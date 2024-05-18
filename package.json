@@ -8,6 +8,7 @@
     "browserify": "^17.0.0",
     "ethers": "^5.7.2"
   },
-  "main": "helpers.cjs",
-  "type": "module"
+   "scripts": {
+    "start": "node index.js"
+  }
 }
