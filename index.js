@@ -8,7 +8,7 @@ const contract_abi = contract_json.abi;
 const sepolia_url = "https://sepolia.drpc.org"
 const provider = new ethers.providers.JsonRpcProvider(sepolia_url);
 let contract = new ethers.Contract("0xF744073FDE4d0f259624e675620587F69efA924C", contract_abi, provider);
-
+const port = process.env.PORT || 3000;
 
 async function get_stones() {
     let counter = 0;
@@ -123,6 +123,6 @@ http.createServer(async function (req, res) {
             res.end("Internal Server Error");
         }
     }
-}).listen(3000, () => {
-    console.log("Server running at http://localhost:3000/");
+}).listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
