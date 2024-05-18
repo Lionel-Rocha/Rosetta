@@ -44,11 +44,11 @@ async function get_user(address){
 }
 let ethersProvider, signer;
 async function write_stone(text) {
-    return await contract.write_in_stone(text);
-    // ethersProvider = new ethers.providers.Web3Provider(wallet.provider, sepolia_url)
-    // signer = ethersProvider.getSigner()
-    // contract = ethers.Contract("0xF744073FDE4d0f259624e675620587F69efA924C", contract_abi, ethersProvider);
     // return await contract.write_in_stone(text);
+    ethersProvider = new ethers.providers.Web3Provider(wallet.provider, sepolia_url)
+    signer = ethersProvider.getSigner()
+    contract = ethers.Contract("0xF744073FDE4d0f259624e675620587F69efA924C", contract_abi, ethersProvider);
+    return await contract.write_in_stone(text);
 }
 
 async function change_user_info(wallet, name, bio, profile_picture){
