@@ -1,9 +1,9 @@
 
 const port = process.env.PORT || 3000;
-
+const path = require('path');
 const ethers = require("ethers");
 const http = require('http');
-const contract_json = require('../../contracts/rosetta.json');
+const contract_json = require(path.join(__dirname,'rosetta.json'));
 const detectEthereumProvider = require("@metamask/detect-provider");
 const contract_abi = contract_json.abi;
 const sepolia_url = "https://sepolia.drpc.org"
