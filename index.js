@@ -1,8 +1,7 @@
-
-
+const path = require('path');
 const ethers = require("ethers");
 const http = require('http');
-const contract_json = require('rosetta.json');
+const contract_json = require(path.join(__dirname,'rosetta.json'));
 const detectEthereumProvider = require("@metamask/detect-provider");
 const {parse} = require("querystring");
 const contract_abi = contract_json.abi;
