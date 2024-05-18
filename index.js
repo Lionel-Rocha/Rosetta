@@ -34,9 +34,11 @@ async function get_stones() {
 
 async function get_user(address) {
     let result = await contract.get_user(address);
-    if (result && result[0].length > 0) {
-        if (result[0].every(element => element.trim() !== "")) {
-            return result; 
+
+    if (result && Array.isArray(result[0]) && result[0].length > 0) {
+    
+        if (result[0].every(element => typeof element === 'string' && element.trim() !== "")) {
+            return result;  
         } else {
             return false;  
         }
