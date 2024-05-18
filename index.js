@@ -21,7 +21,7 @@ async function get_stones() {
             if (result.writer === "0x0000000000000000000000000000000000000000") {
                 result = false;
             } else {
-                array.push(result); // Use array.push() instead of array.append()
+                array.push(result);
                 counter += 1;
             }
         } catch (error) {
@@ -32,15 +32,19 @@ async function get_stones() {
     return array;
 }
 
-async function get_user(address){
-    let result = contract.get_user(address);
-
-    if (result[0][0] === ""){
-        return false;
+async function get_user(address) {
+    let result = await contract.get_user(address);
+    if (result && result[0].length > 0) {
+        if (result[0].every(element => element.trim() !== "")) {
+            return result; 
+        } else {
+            return false;  
+        }
     } else {
-        return result;
+        return false; 
     }
 }
+
 
 http.createServer(async function (req, res) {
     try {
