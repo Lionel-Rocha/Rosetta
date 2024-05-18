@@ -35,7 +35,7 @@ async function get_stones() {
 async function get_user(address){
     let result = contract.get_user(address);
 
-    if (!result[0]){
+    if (result[0][0] === ""){
         return false;
     } else {
         return result;
