@@ -1,14 +1,15 @@
-const path = require('path');
+
+const port = process.env.PORT || 3000;
+
 const ethers = require("ethers");
 const http = require('http');
-const contract_json = require(path.join(__dirname,'rosetta.json'));
+const contract_json = require('../../contracts/rosetta.json');
 const detectEthereumProvider = require("@metamask/detect-provider");
-const {parse} = require("querystring");
 const contract_abi = contract_json.abi;
 const sepolia_url = "https://sepolia.drpc.org"
 const provider = new ethers.providers.JsonRpcProvider(sepolia_url);
 let contract = new ethers.Contract("0xF744073FDE4d0f259624e675620587F69efA924C", contract_abi, provider);
-const port = process.env.PORT || 3000;
+
 
 async function get_stones() {
     let counter = 0;
@@ -50,6 +51,10 @@ async function write_stone(text) {
 }
 
 async function change_user_info(wallet, name, bio, profile_picture){
+    ethersProvider = new ethers.providers.Web3Provider(wallet.provider, sepolia_url)
+    signer = ethersProvider.getSigner()
+    contract = ethers.Contract("0xF744073FDE4d0f259624e675620587F69efA924C", contract_abi, ethersProvider);
+
     const updates = {};
 
     if (name && name.trim()) {
@@ -76,6 +81,8 @@ async function change_user_info(wallet, name, bio, profile_picture){
         throw new Error("Failed to update user information.");
     }
 }
+
+// Create a server object:
 http.createServer(async function (req, res) {
     try {
         const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
@@ -86,8 +93,8 @@ http.createServer(async function (req, res) {
             let result = await get_stones();
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(result));
-        } else if (pathname === '/write_stone' && method === 'POST') {
-
+        } else if (pathname === '/write_stone' && method === 'POST' && parsedUrl.searchParams.has('wallet')) {
+            let user_wallet = parsedUrl.searchParams.get('wallet');
             let body = '';
 
             req.on('data', chunk => {
@@ -95,10 +102,11 @@ http.createServer(async function (req, res) {
             });
 
             req.on('end', async () => {
-                const parsedBody = parse(body);
+                const parsedBody = querystring.parse(body);
                 const text = parsedBody.text;
+
                 try {
-                    let result = await write_stone(text);
+                    let result = await write_stone(user_wallet, text);
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify(result));
                 } catch (error) {
