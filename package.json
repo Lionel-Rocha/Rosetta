@@ -1,0 +1,13 @@
+{
+  "name": "Rosetta",
+  "version": "1.0.0",
+  "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
+    "@web3-onboard/core": "^2.21.6",
+    "@web3-onboard/injected-wallets": "^2.10.16",
+    "browserify": "^17.0.0",
+    "ethers": "^5.7.2"
+  },
+  "main": "helpers.cjs",
+  "type": "module"
+}
