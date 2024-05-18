@@ -103,7 +103,7 @@ http.createServer(async function (req, res) {
             });
 
             req.on('end', async () => {
-                const parsedBody = querystring.parse(body);
+                const parsedBody = parse(body);
                 const text = parsedBody.text;
 
                 try {
