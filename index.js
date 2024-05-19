@@ -8,7 +8,8 @@ const detectEthereumProvider = require("@metamask/detect-provider");
 const contract_abi = contract_json.abi;
 const sepolia_url = "https://sepolia.drpc.org"
 const provider = new ethers.providers.JsonRpcProvider(sepolia_url);
-let contract = new ethers.Contract("0x7dB8415a88BB75FF938F0061E877E14D85FDe8d2", contract_abi, provider);
+const contract_address = "0xF26C4afc23dA877260848370d9D879f954D49C78"
+let contract = new ethers.Contract(contract_address, contract_abi, provider);
 
 
 async function get_stones() {
