@@ -1,0 +1,190 @@
+{
+"abi": [
+{
+"inputs": [],
+"stateMutability": "nonpayable",
+"type": "constructor"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": false,
+"internalType": "address",
+"name": "writer",
+"type": "address"
+},
+{
+"indexed": false,
+"internalType": "string",
+"name": "username",
+"type": "string"
+}
+],
+"name": "change_user_det",
+"type": "event"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": false,
+"internalType": "address",
+"name": "writer",
+"type": "address"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "id",
+"type": "uint256"
+},
+{
+"indexed": false,
+"internalType": "string",
+"name": "text",
+"type": "string"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"name": "write_stone",
+"type": "event"
+},
+{
+"inputs": [
+{
+"internalType": "string",
+"name": "name",
+"type": "string"
+},
+{
+"internalType": "string",
+"name": "bio",
+"type": "string"
+},
+{
+"internalType": "string",
+"name": "profile_picture",
+"type": "string"
+}
+],
+"name": "change_user_details",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "id",
+"type": "uint256"
+}
+],
+"name": "get_stone",
+"outputs": [
+{
+"components": [
+{
+"internalType": "address",
+"name": "writer",
+"type": "address"
+},
+{
+"internalType": "string",
+"name": "username",
+"type": "string"
+},
+{
+"internalType": "uint256",
+"name": "id",
+"type": "uint256"
+},
+{
+"internalType": "string",
+"name": "text",
+"type": "string"
+},
+{
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"internalType": "struct rosetta.stone",
+"name": "",
+"type": "tuple"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "address",
+"name": "user_address",
+"type": "address"
+}
+],
+"name": "get_user",
+"outputs": [
+{
+"components": [
+{
+"internalType": "string",
+"name": "name",
+"type": "string"
+},
+{
+"internalType": "string",
+"name": "bio",
+"type": "string"
+},
+{
+"internalType": "string",
+"name": "profile_picture",
+"type": "string"
+}
+],
+"internalType": "struct rosetta.user",
+"name": "",
+"type": "tuple"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "owner",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "string",
+"name": "text",
+"type": "string"
+}
+],
+"name": "write_in_stone",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+}
+]
+}

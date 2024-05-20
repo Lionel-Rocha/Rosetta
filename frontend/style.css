@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    --rosetta-color: #f3dccc;
+    --rosetta-background: #fca136;
+    background-color: #ffffff;
+    overflow-x: auto;
+}
+
+.sidebarOption{
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+.sidebarOption img{
+    padding: 10px;
+}
+
+.sidebarOption h2{
+    font-family: "Inter", serif;
+    margin-right: 20px;
+}
+
+.sidebarOption:hover{
+    background-color: var(--rosetta-background);
+    border-radius: 30px;
+    color: #000;
+    transition: color 100ms ease-out;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+.sidebar {
+    border-right: 1px solid var(--rosetta-color);
+    flex: 0.2;
+    min-width: 250px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.user_input{
+    display: flex;
+    padding:20px;
+}
+
+.user_input input{
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.user_input button{
+    background-color: var(--rosetta-color);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    margin-top:20px;
+    margin-left:auto;
+}
+.information{
+    display: flex;
+    flex-direction: column;
+    flex: 0.3;
+    margin: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    transition: opacity 0.3s linear 2s;
+}
+
+.information h2{
+    font-family: Inter, sans-serif;
+    text-align: center;
+    font-size:15px;
+    font-weight: 400;
+}
+
+#span{
+    margin-top: 20px;
+}
+
+.information button{
+    background-color: var(--rosetta-color);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    border-radius: 30px;
+    width: 10vw;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    flex: 0.6;
+    border-right: 1px solid var(--rosetta-color);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.feed_header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 100;
+    border-bottom: 1px solid var(--rosetta-color);
+    padding: 15px 20px;
+}
+
+.feed_header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: Inter, sans-serif;
+}
+
+.feed::-webkit-scrollbar {
+    display: none;
+}
+
+.stonebox {
+    border-bottom: 1px solid var(--rosetta-color);
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.stone {
+    font-family: 'Inter', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--rosetta-color);
+    margin: 10px;
+    padding: 10px;
+    }
+
+
+
+    /*.feed{*/
+/*    flex: 0.6;*/
+/*    border-right: 1px solid var(--rosetta-color);*/
+/*    min-width: fit-content;*/
+/*    overflow-y:scroll;*/
+/*    -ms-overflow-style: none;*/
+/*    scrollbar-width: none;*/
+/*}*/
+
+/*.feed_header{*/
+/*    position: sticky;*/
+/*    top:0;*/
+/*    background-color: #fff;*/
+/*    z-index: 100;*/
+/*    border-bottom: 1px solid var(--rosetta-color);*/
+/*    padding: 15px 20px;*/
+/*}*/
+
+/*.feed_header h2 {*/
+/*    font-size:20px;*/
+/*    font-weight: 800;*/
+/*    font-family: Inter, sans-serif;*/
+/*}*/
+
+/*.feed::-webkit-scrollbar{*/
+/*    display: none;*/
+/*}*/
+
+/*.stonebox{*/
+/*    padding-bottom: 10px;*/
+/*    border-bottom: 5px solid var(--rosetta-color);*/
+/*    padding-right: 10px;*/
+/*}*/
+
+/*.stonebox form{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+/*.stone {*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    border-bottom: 1px solid var(--rosetta-color);  !* Optional: Add border for better visualization *!*/
+/*    margin: 10px;  !* Optional: Add margin between stones *!*/
+/*    padding: 10px;  !* Optional: Add padding within each stone *!*/
+/*    background-color: #fff;  !* Optional: Add background color *!*/
+/*    text-align: justify;*/
+/*}*/
+
+.stone_writer_info {
+    margin-bottom:10px;
+    display: flex;
+    flex-direction: row;  /* Ensure elements are aligned in a row */
+    align-items: center;  /* Vertically center the items */
+    gap: 10px;  /* Optional: Add space between elements */
+}
+
+.time {
+    text-align: right;
+}
+
+
+
+#profile .banner {
+    width: 100%;
+    height: 200px; /* Adjust the height as needed */
+    background-color: #ccc; /* Example background color */
+    z-index: 1; /* Ensure the banner is behind the picture */
+}
+
+.profile_picture {
+    position: absolute;
+    top: 15vw;
+    left: 21vw;
+    width: 150px;
+    height: 150px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+#profile_user{
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size:20px;
+}
+
+#bio{
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size:15px;
+}
