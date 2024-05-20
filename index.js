@@ -49,22 +49,26 @@ async function get_user(address) {
 
 async function get_user_stones(address){
     let counter = 0;
-    let result;
     let array = [];
-     try {
+    let result;
+    let writer_zero = "0x0000000000000000000000000000000000000000";
+    try {
         result = await contract.get_stone(counter);
-        if (result.writer === address) {
-            array.push(result);
-            counter += 1;
-        } else {
-            counter +=1;
+        while (result.writer !== writer_zero){
+            if (result.writer === address) {
+                array.push(result);
+                counter += 1;
+            } else {
+                counter +=1;
             }
-        } catch (error) {
-            console.error("Error fetching stone:", error);
-            result = false;
+            result = await contract.get_stone(counter);
         }
-    return array;
+    } catch (error) {
+        console.error("Error fetching stone:", error);
     }
+    return array;
+}
+
 
 
 
