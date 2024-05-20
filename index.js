@@ -8,7 +8,7 @@ const detectEthereumProvider = require("@metamask/detect-provider");
 const contract_abi = contract_json.abi;
 const sepolia_url = "https://sepolia.drpc.org"
 const provider = new ethers.providers.JsonRpcProvider(sepolia_url);
-const contract_address = "0xF26C4afc23dA877260848370d9D879f954D49C78";
+const contract_address = "0xF744073FDE4d0f259624e675620587F69efA924C";
 let contract = new ethers.Contract(contract_address, contract_abi, provider);
 
 
