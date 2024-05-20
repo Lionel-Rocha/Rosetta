@@ -216,7 +216,8 @@ async function requestAccount() {
         console.log('detected');
 
         try {
-            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            // const provider = new ethers.providers.Web3Provider(window.ethereum)
 
             await provider.send("eth_requestAccounts", []);
 
@@ -230,6 +231,7 @@ async function requestAccount() {
 
         } catch (error) {
             console.log('Error connecting...');
+            console.log(error);
         }
 
         } else {
@@ -294,23 +296,45 @@ async function updateGasPrice() {
     }
 }
 
-function load() {
+function index_load() {
     document.getElementById("user_text").value = "";
     updateGasPrice(); // Initial update on page load
-    fetch_stones();
+    handles_stones();
+    document.getElementById("account_address").innerText = sessionStorage.getItem("account");
     // Set interval to update gas price every 4 seconds
     setInterval(updateGasPrice, 4000);
-    setInterval(fetch_stones, 10000);
+
+
+    setInterval(handles_stones, 10000);
+
+}
+
+function profile_load(){
+
+
+    updateGasPrice();
+    document.getElementById("account_address").innerText = sessionStorage.getItem("account");
+    setInterval(updateGasPrice, 4000);
+}
+
+async function handles_stones(){
+        let response = await get_stones();
+        fetch_stones(response)
 }
 
 
 
-let last_response_tip = 0;
-async function fetch_stones(){
+    async function get_stones() {
+        return await fetch("https://rosetta-production.up.railway.app/get_stones", {
+            mode: 'cors'
+        }).then(response => response.json());
+    }
 
-    let response = await fetch("https://rosetta-production.up.railway.app/get_stones", {
-        mode: 'cors'
-    }).then(response => response.json())
+
+let last_response_tip = 0;
+
+async function fetch_stones(response){
+
 
     let response_tip = response.length;
 
@@ -369,50 +393,6 @@ async function get_anonymous_username(){
     return result[0] + " " + result[1];
 }
 
-async function user_info() {
-    requestAccount();
-    let user = sessionStorage.getItem("account");
-    console.log(user);
-    user = await gets_user(user);
-    console.log(user);
 
-    document.getElementById("username").innerText = user[0];
-    gets_banner();
-    gets_profile_picture(user);
-    updateGasPrice();
-    setInterval(updateGasPrice, 4000);
-
-}
-
-function gets_profile_picture(user){
-    let picture = user[2]
-    let profile_picture = document.createElement("img");
-    profile_picture.src = picture;
-    profile_picture.className = "profile_picture";
-
-    document.getElementById("profile_picture").appendChild(profile_picture);
-    document.getElementById("profile_user").innerText = user[0];
-
-    gets_bio(user);
-}
-
-function gets_bio(user){
-    let bio = document.createElement("p");
-    bio.className = "bio";
-    bio.innerText = user[1];
-    document.getElementById("bio").appendChild(bio);
-}
-function gets_banner(){
-    let number= Math.floor(Math.random() * 3) + 1;
-    let banner = document.createElement("img");
-    banner.src = "images/banner" + number.toString() + ".png";
-    banner.className = "banner";
-    document.getElementById("profile_banner").appendChild(banner);
-
-}
-async function gets_user(address){
-    return await fetch(`https://rosetta-production.up.railway.app/get_user?address=${address}`)
-        .then(information => information.json());
-}
 
 

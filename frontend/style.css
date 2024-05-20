@@ -11,6 +11,11 @@ body{
     overflow-x: auto;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .sidebarOption{
     display: flex;
     align-items: center;
@@ -99,6 +104,10 @@ body{
     margin-top: 20px;
 }
 
+#account_address{
+    font-size: 12px;
+}
+
 .information button{
     background-color: var(--rosetta-color);
     border: none;
@@ -152,56 +161,9 @@ body{
     border-bottom: 1px solid var(--rosetta-color);
     margin: 10px;
     padding: 10px;
-    }
+}
 
 
-
-    /*.feed{*/
-/*    flex: 0.6;*/
-/*    border-right: 1px solid var(--rosetta-color);*/
-/*    min-width: fit-content;*/
-/*    overflow-y:scroll;*/
-/*    -ms-overflow-style: none;*/
-/*    scrollbar-width: none;*/
-/*}*/
-
-/*.feed_header{*/
-/*    position: sticky;*/
-/*    top:0;*/
-/*    background-color: #fff;*/
-/*    z-index: 100;*/
-/*    border-bottom: 1px solid var(--rosetta-color);*/
-/*    padding: 15px 20px;*/
-/*}*/
-
-/*.feed_header h2 {*/
-/*    font-size:20px;*/
-/*    font-weight: 800;*/
-/*    font-family: Inter, sans-serif;*/
-/*}*/
-
-/*.feed::-webkit-scrollbar{*/
-/*    display: none;*/
-/*}*/
-
-/*.stonebox{*/
-/*    padding-bottom: 10px;*/
-/*    border-bottom: 5px solid var(--rosetta-color);*/
-/*    padding-right: 10px;*/
-/*}*/
-
-/*.stonebox form{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
-/*.stone {*/
-/*    font-family: 'Inter', sans-serif;*/
-/*    border-bottom: 1px solid var(--rosetta-color);  !* Optional: Add border for better visualization *!*/
-/*    margin: 10px;  !* Optional: Add margin between stones *!*/
-/*    padding: 10px;  !* Optional: Add padding within each stone *!*/
-/*    background-color: #fff;  !* Optional: Add background color *!*/
-/*    text-align: justify;*/
-/*}*/
 
 .stone_writer_info {
     margin-bottom:10px;
@@ -216,8 +178,14 @@ body{
 }
 
 
+#profile {
+    position: relative; /* Ensure a relative position for the profile container */
+    z-index: 1; /* Set a lower z-index for the profile container */
+}
 
 #profile .banner {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 200px; /* Adjust the height as needed */
     background-color: #ccc; /* Example background color */
@@ -225,15 +193,16 @@ body{
 }
 
 .profile_picture {
-    position: absolute;
-    top: 15vw;
-    left: 21vw;
+    position: absolute; /* Use absolute positioning for the profile picture */
+    top: 10vw;
+    left:auto;
     width: 150px;
     height: 150px;
     border: 10px solid #fff;
     border-radius: 50%;
-    z-index: 2;
+    z-index: 2; /* Set a higher z-index for the profile picture */
 }
+
 
 #profile_user{
     text-align: center;
@@ -247,4 +216,7 @@ body{
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size:15px;
+    margin-bottom: 2vw;
+
 }
+

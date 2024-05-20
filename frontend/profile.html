@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Rosetta</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.11.1/ethers.umd.min.js" integrity="sha512-qp190c9mQz0dBG4WDw9gh96lS4VPmgewqOn5h/i04TaANIODXxFagRTaga4nS6VkbWFraPan1BGwZh6FS48uHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <link rel="icon" href="images/icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" integrity="sha512-+Ftowzj6zmwHlez4gpQxd7QQUzK/ocgu10pukN3Pyqblni7yJ9r/WTpNHoYKL4DGOp5givxSUZjJcVY7Az9OAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
     <script src="profile.js"></script>
@@ -13,16 +13,24 @@
 </head>
 <body onload = "user_info()">
 
-<div class="sidebar">
-    <div class="sidebarOption">
-        <img src="images/home.png">
-        <h2>Home</h2>
-    </div>
 
-    <div class="sidebarOption">
-        <img src="images/profile.png">
-        <h2>Profile</h2>
-    </div>
+<div class="sidebar">
+    <a href="index.html">
+        <div class="sidebarOption">
+            <img src="images/home.png">
+            <h2>Home</h2>
+        </div>
+    </a>
+
+
+
+    <a href="profile.html">
+        <div class="sidebarOption">
+            <img src="images/profile.png">
+            <h2>Profile</h2>
+        </div>
+    </a>
+
 
     <div class="sidebarOption">
         <img src="images/search.png">
@@ -50,7 +58,9 @@
         <div id="bio"></div>
     </div>
 
+    <div id="feed_body">
 
+    </div>
 
 </div>
 
