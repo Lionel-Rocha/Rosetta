@@ -3,7 +3,7 @@
 <div class="badges" align="center">
 <img src="https://img.shields.io/badge/Solidity-2b247c?style=for-the-badge&logo=solidity&logoColor=white" alt="Solidity badge"/>
 <img src="https://img.shields.io/badge/Javascript-efd81d?style=for-the-badge&logo=javascript&logoColor=black" alt="Javascript badge"/>
-<img src="https://img.shields.io/badge/work_in_progress-v0.1-c86b21?style=for-the-badge" alt="Work in progress"/>
+<img src="https://img.shields.io/badge/work_in-progress-C86B21?style=for-the-badge" alt="Work in progress"/>
 </div>
 
 ## What is Rosetta?
