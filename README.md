@@ -14,7 +14,7 @@ Rosetta is a Twitter-like platform where people can write thoughts, opinions, an
 
 The version 1.0 has no schedule yet, however, there will be regular updates based on how much time I've got to spend on the project. Hopefuly there'll be a stable release at late August.
 
-# TODO
+## TODO
 * New UI
 * Dark mode
 * Bug fixing
