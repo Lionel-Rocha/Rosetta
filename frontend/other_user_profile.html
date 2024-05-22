@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Rosetta</title>
-    <link rel="icon" href="images/icon.png">
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" integrity="sha512-+Ftowzj6zmwHlez4gpQxd7QQUzK/ocgu10pukN3Pyqblni7yJ9r/WTpNHoYKL4DGOp5givxSUZjJcVY7Az9OAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="search.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="profile.js"></script>
+    <script src="search.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body onload="index_load()">
+<body onload = "another_user()">
 
-<!--sidebar-->
 
 <div class="sidebar">
     <a href="index.html">
@@ -32,7 +32,6 @@
         </div>
     </a>
 
-
     <div class="sidebarOption">
         <button onclick="appear()" class="search">
             <img src="images/search.png">
@@ -40,28 +39,31 @@
         </button>
     </div>
 
+
     <a href="settings.html">
         <div class="sidebarOption">
             <img src="images/settings.png">
             <h2>Settings</h2>
         </div>
     </a>
+
 </div>
-
-<!-- feed -->
-
 <div class="feed">
+
+
+
     <div class="feed_header">
-        <h2>Home</h2>
+        <h2><span id="username"></span></h2>
     </div>
 
-    <div class="stonebox">
-        <form>
-            <div class="user_input">
-                <input type="text" id="user_text" placeholder="Register something...">
-                <button class="stonebox_button" onclick="write_in_stone(event)">Set in stone</button>
-            </div>
-        </form>
+    <div id="profile">
+        <div id="profile_banner"></div>
+
+        <div id="profile_picture"></div>
+
+        <div id="profile_user"></div>
+
+        <div id="bio"></div>
     </div>
 
     <div id="feed_body">
@@ -73,13 +75,12 @@
             <button onclick="hide()">X</button>
             <input id="search_input" type="text" placeholder="address">
             <button id="search_button" onclick="search()"> <img src="images/search.png" alt="search button"></button>
+
         </form>
 
     </div>
 
 </div>
-
-<!-- info -->
 
 <div class="information">
     <h2>Connected account: <span id="account_address">none</span></h2>
@@ -87,6 +88,7 @@
 
     <h2 id="span">Gas price: <span id="gas_price"></span> gwei</h2>
 </div>
+
 
 
 </body>

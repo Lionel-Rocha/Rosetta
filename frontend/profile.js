@@ -9,9 +9,20 @@ async function user_info() {
 
 
     handles_user_stones(user_address)
-    // updateGasPrice();
-    // setInterval(updateGasPrice, 4000);
 
+
+}
+
+async function another_user(){
+    profile_load();
+    let another_user_address = sessionStorage.getItem("another_user");
+    let another_user_info = await gets_user(another_user_address);
+    document.getElementById("username").innerText = another_user_info[0];
+    gets_banner();
+    gets_profile_picture(another_user_info);
+
+
+    handles_user_stones(another_user_address);
 
 
 }

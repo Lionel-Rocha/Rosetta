@@ -240,12 +240,7 @@ async function requestAccount() {
 }
 
 
-function stringToHex(text) {
-    const encoder = new TextEncoder();
-    const bytes = encoder.encode(text);
-    const hexBytes = Array.from(bytes).map(byte => byte.toString(16).padStart(2, '0')).join('');
-    return hexBytes;
-}
+
 
 // Example usage
 
@@ -264,7 +259,6 @@ async function write_in_stone(event) {
     }
 
     try {
-        let text_to_hex = stringToHex(text);
         console.log(signer);
 
         contract = new ethers.Contract(contract_address, abi.abi, signer);
@@ -391,6 +385,66 @@ async function get_anonymous_username(){
         .then(response => response.json());
 
     return result[0] + " " + result[1];
+}
+
+async function change_user_info() {
+    event.preventDefault();
+
+    let account = sessionStorage.getItem("account");
+    if (signer === undefined){
+        await requestAccount();
+    }
+
+    try {
+        let name = document.getElementById("user_username").value.trim();
+        let profile_picture = document.getElementById("user_profile_picture").value.trim();
+        let bio = document.getElementById("user_bio").value.trim();
+
+        if (!name && !profile_picture && !bio) {
+            alert("No new information provided to update.");
+            return;
+        }
+
+        if (profile_picture && !isValidURL(profile_picture)) {
+            alert("Please enter a valid URL for the profile picture.");
+            return;
+        }
+        let current_user = await gets_user(account);
+        let current_name = current_user[0];
+        let current_bio = current_user[1];
+        let current_picture = current_user[2];
+
+        let new_name = name || current_name;
+        let new_profile_picture = profile_picture || current_picture;
+        let new_bio = bio || current_bio;
+
+
+        contract = new ethers.Contract(contract_address, abi.abi, signer);
+
+        if (new_name === current_name && new_profile_picture === current_picture && new_bio === current_bio) {
+            alert("No new information provided to update.");
+            return;
+        }
+
+        // Validate profile picture URL if provided
+        if (new_profile_picture && !isValidURL(new_profile_picture)) {
+            alert("Please enter a valid URL for the profile picture.");
+            return;
+        }
+
+        // Update user information
+        let result = await contract.change_user_details(new_name, new_bio, new_profile_picture);
+        console.log("Transaction result:", result);
+        alert("User information updated successfully!");
+    } catch (error) {
+        console.error("Error while sending transaction:", error);
+        alert("An error occurred while sending transaction.");
+    }
+}
+
+function isValidURL(string) {
+    let res = string.match(/(https?:\/\/[^\s]+)/g);
+    return (res !== null);
 }
 
 

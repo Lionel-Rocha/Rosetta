@@ -200,7 +200,8 @@ body{
     height: 150px;
     border: 10px solid #fff;
     border-radius: 50%;
-    z-index: 2; /* Set a higher z-index for the profile picture */
+    z-index: 2;
+    background-color: #fff;
 }
 
 
@@ -217,6 +218,102 @@ body{
     font-weight: 400;
     font-size:15px;
     margin-bottom: 2vw;
+}
+
+#popup_search{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    background-color: #f3f2f1;
+    display: flex;
+    justify-content:space-evenly;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    height: 70px;
+    visibility: hidden;
+    z-index: 6;
+}
+
+#search_button{
+    margin-top:1vw;
+    border: none;
+    background-color: var(--rosetta-background);
+    width: 44px;
+    height:44px;
+    border-radius:30%;
+}
+
+.search{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    font-size: 15px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    flex: 0.6;
+    border-right: 1px solid var(--rosetta-color);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.settings_header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 100;
+    border-bottom: 1px solid var(--rosetta-color);
+    padding: 15px 20px;
+}
+
+.settings_header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: Inter, sans-serif;
+}
+
+.user_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 30%;
+    width: 250px;
+    height: 500px;
+    /*border-radius: 20px;*/
+    padding: 50px;
+    box-sizing: border-box;
+    /*background: #ffffff;*/
+    /*box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;*/
 
 }
 
+.user_form div{
+    margin-top:2vw;
+}
+
+.submit{
+    margin-top:1vw;
+    border: none;
+    background-color: var(--rosetta-background);
+    width: auto;
+    height:auto;
+    padding: 0.5vw 1vw;
+    border-radius:10px;
+}
+
+textarea{
+    resize: none;
+    overflow: auto;
+    width: 15vw;
+}
+
+label, .submit{
+    font-family: "Inter", sans-serif;
+}
