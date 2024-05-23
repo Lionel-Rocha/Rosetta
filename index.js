@@ -72,9 +72,7 @@ async function get_stones() {
 async function get_news() {
     try {
         const response = await fetch("https://api.coingecko.com/api/v3/news"); // Fetch news from the API
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+        
         const newsData = await response.json();
         return newsData;
     } catch (error) {
