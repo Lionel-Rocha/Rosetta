@@ -1,0 +1,310 @@
+:root,:root.light{
+    --main_color: #F8C794;
+    --background_color: #fff;
+    --stones_color: #fff;
+    --text_color: #000;
+    --button_color: #000;
+    --shadow_color_1: rgba(0, 0, 0, 0.12);
+    --shadow_color_2: rgba(0, 0, 0, 0.24);
+}
+
+:root.dark{
+    --main_color: #ffeed6;
+    --background_color: #121212;
+    --stones_color: #282828;
+    --text_color: #fff;
+    --button_color: #000;
+    --shadow_color_1: #525151;
+    --shadow_color_2: #232222;
+}
+
+:root.dark .sidebarOption img {
+    filter: invert(100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin-top: 1vw;
+    background-color: var(--background_color);
+    display: flex;
+    height: 100vh;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    overflow: hidden;
+    font-family: "Arial", sans-serif;
+    color: var(--text_color)
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    border-right: 1px solid var(--main_color);
+    flex: 0.1;
+    min-width: 250px;
+    margin-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.sidebarOption{
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    margin-bottom:5px;
+
+}
+
+.sidebarOption img{
+    padding: 10px;
+}
+
+.sidebarOption h2{
+    margin-right: 20px;
+    font-weight: 300;
+}
+
+.sidebarOption:hover{
+    background-color: var(--main_color);
+    border-radius: 30px;
+    color: #000;
+    transition: color 100ms ease-out;
+}
+
+.search{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    font-size: 15px;
+    color: var(--text_color);
+
+}
+
+/* FEED */
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    flex: 0.6;
+    border-right: 1px solid var(--main_color);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.feed_header{
+    border-bottom: 1px solid var(--main_color);
+    padding:1vw;
+    margin-bottom: 1vw;
+    position: sticky;
+    z-index: 100;
+}
+
+.feed::-webkit-scrollbar {
+    display: none;
+}
+
+.stonebox {
+    border-bottom: 1px solid var(--main_color);
+    height:120px;
+    background-color: var(--background_color);
+}
+
+.stonebox textarea{
+    width: 90%;
+    border: none;
+    resize: none;
+    overflow-y: hidden;
+    background-color: var(--background_color);
+    color: var(--text_color);
+    font-family: Arial, sans-serif;
+}
+
+.stonebox textarea:focus {
+    outline: none;
+}
+
+.user_input{
+    display: flex;
+    padding:10px;
+}
+
+.user_input input{
+    flex: 1;
+    margin-left: 5px;
+    margin-top:0;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.user_input button{
+    background-color: var(--main_color);
+    border: none;
+    color: var(--button_color);
+    font-weight: 700;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    margin-top:40px;
+    margin-left:auto;
+}
+
+#the-count{
+    margin-left:10px;
+}
+
+.stone {
+    font-family: 'Inter', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    /*border-bottom: 1px solid var(--main_color);*/
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--stones_color);
+    box-shadow: 0px 1px 3px var(--shadow_color_1), var(--shadow_color_2) 0px 1px 2px;;
+    /*box-shadow: var(--shadow_color_1) 0px 1px 3px, var(--shadow_color_2) 0px 1px 2px;*/
+}
+
+.stone_writer_info {
+    margin-bottom:10px;
+    display: flex;
+    flex-direction: row;  /* Ensure elements are aligned in a row */
+    align-items: center;  /* Vertically center the items */
+    gap: 10px;  /* Optional: Add space between elements */
+}
+
+.time {
+    text-align: right;
+}
+
+/* INFORMATION */
+
+.other_information{
+    margin-top: 1vw;
+    border-top: 1px solid var(--main_color);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.other_information_element{
+    margin-top:2vw;
+}
+
+#information {
+    flex: 0.3;
+    margin-left: 1vw;
+    text-align: justify;
+    overflow-x: hidden;  /* Hide horizontal scrollbar */
+    overflow-y: auto;    /* Ensure content is scrollable vertically without showing scrollbar */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;     /* Firefox */
+}
+
+#information::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+#information p {
+    font-size: 90%;
+}
+
+#information button{
+    background-color: var(--main_color);
+    border: none;
+    color: var(--button_color);
+    font-weight: 700;
+    border-radius: 30px;
+    width: 10vw;
+}
+
+#account_info{
+    text-align: center;
+    margin-bottom: 1vw;
+    width: calc(23vw + 2vw);
+    height: calc(10vh + 2vw);
+    background-color: var(--stones_color);
+}
+
+#account_info h3{
+    margin-top: 0.5vw;
+}
+
+.information_element {
+    border: 1px solid var(--main_color);
+    box-shadow: 0px 2px 3px var(--shadow_color_1), var(--shadow_color_2) 0px 2px 2px;;
+    border-radius: 5px;
+}
+
+.news_element{
+    border: 1px solid var(--main_color);
+    box-shadow: 0px 2px 3px var(--shadow_color_1), var(--shadow_color_2) 0px 2px 2px;
+    background-color: var(--stones_color);
+    border-radius: 5px;
+    padding:0.5vw;
+    width: calc(23vw + 2vw);
+    margin-top:0.75vw;
+    /*height: calc(10vh + 2vw);*/
+
+}
+
+.news_element a{
+    font-style: italic;
+}
+
+/* SEARCH USER*/
+
+#popup_search{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    background-color: var(--background_color);
+    display: flex;
+    justify-content:space-evenly;
+    width: 300px;
+    box-shadow: var(--text_color) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 5px;
+    height: 70px;
+    visibility: hidden;
+    z-index: 6;
+}
+
+#popup_search input{
+    top: 30%;
+}
+
+#search_button{
+    background-color: var(--main_color);
+    border: none;
+    padding:5px;
+    top: 15%;
+    width:40px;
+    height: 40px;
+    border-radius:5px;
+}
+
+#hide_button{
+    background-color: var(--main_color);
+    border: none;
+    padding:2px;
+    top: 10%;
+    right: 5%;
+    width:20px;
+    height: 20px;
+    border-radius:5px;
+}

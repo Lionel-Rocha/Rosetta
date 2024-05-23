@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Arial", sans-serif;
+}
+
+#profile_header{
+    margin: 0.75vw;
+}
+
+#profile {
+    position: relative;
+    z-index: 1;
+}
+
+#profile .banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 200px; /
+    z-index: 0;
+}
+
+.profile_picture {
+    position: absolute;
+    bottom: -5vw;
+    left: 2vw;
+    width: 150px;
+    height: 150px;
+    border: 5px solid var(--background_color);
+    background-color: var(--background_color);
+    border-radius: 50%;
+    z-index: 20;
+}
+
+#profile_user{
+    margin-top: 1.5vw;
+    margin-left:2.5vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#bio{
+    margin-top: 1.5vw;
+    margin-left:1.5vw;
+    padding: 1vw;
+    text-align: justify;
+    border-bottom: 1px solid var(--main_color);
+}

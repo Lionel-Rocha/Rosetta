@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <title>Rosetta</title>
     <link rel="icon" href="images/icon.png">
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" integrity="sha512-+Ftowzj6zmwHlez4gpQxd7QQUzK/ocgu10pukN3Pyqblni7yJ9r/WTpNHoYKL4DGOp5givxSUZjJcVY7Az9OAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="profile.js"></script>
-    <script src="main.js"></script>
-    <script src="search.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <link rel="stylesheet" href="styles/toggle.css">
+    <link rel="stylesheet" href="styles/settings.css">
+    <script src="js/helpers.js"></script>
+    <script src="js/transactions.js"></script>
 </head>
-<body>
+<body onload="default_page_loader()">
 
-<!--sidebar-->
 
 <div class="sidebar">
     <a href="index.html">
@@ -24,15 +22,12 @@
         </div>
     </a>
 
-
-
     <a href="profile.html">
         <div class="sidebarOption">
             <img src="images/profile.png">
             <h2>Profile</h2>
         </div>
     </a>
-
 
     <div class="sidebarOption">
         <button onclick="appear()" class="search">
@@ -47,14 +42,31 @@
             <h2>Settings</h2>
         </div>
     </a>
-</div>
 
+    <div class="change_mode">
+        <div class="toggle">
+            <input type="checkbox" class="check" onclick="toggle()">
+            <b class="b switch"></b>
+            <b class="b track"></b>
+        </div>
+    </div>
+
+    <div class="other_information">
+
+        <div class="other_information_element">
+            <p id="span_3">Gas price: <span id="gas_price_3"></span> gwei</p>
+        </div>
+    </div>
+
+</div>
 <!-- settings -->
 
 <div class="settings">
     <div class="settings_header">
         <h2>Settings</h2>
     </div>
+
+    <h3 style="text-align: center; margin-top: 1vw;">Changes won’t be applied instantly. </h3>
 
     <div class="user_form">
         <form>
@@ -96,12 +108,20 @@
 
 <!-- info -->
 
-<div class="information">
-    <h2>Connected account: <span id="account_address">none</span></h2>
-    <button onclick="requestAccount()">Connect to MetaMask</button>
+<div id="information">
 
-    <h2 id="span">Gas price: <span id="gas_price"></span> gwei</h2>
+    <div id="account_info" class="information_element">
+        <h3>Connected account: </h3>
+        <p><span id="account_address">none</span></p>
+        <button onclick="requestAccount()">Connect to MetaMask</button>
+    </div>
+
+    <h3>Latest news</h3>
+
+    <div id="news_place"></div>
+
 </div>
+
 
 
 </body>

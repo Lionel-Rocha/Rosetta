@@ -1,0 +1,73 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    flex: 0.6;
+    border-right: 1px solid var(--main_color);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.settings_header {
+    position: sticky;
+    top: 0;
+    /*background-color: var(--background_color);*/
+    z-index: 100;
+    border-bottom: 1px solid var(--main_color);
+    padding: 15px 20px;
+}
+
+.settings_header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: Inter, sans-serif;
+}
+
+.user_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    position: absolute;
+    top:20%;
+    justify-content: center;
+    left: 33%;
+    width: 250px;
+    height: 350px;
+    border: 1px solid var(--main_color);
+    border-radius: 5px;
+    padding: 15px;
+    background-color: var(--stones_color);
+    box-sizing: border-box;
+    box-shadow: 0px 1px 3px var(--shadow_color_1), var(--shadow_color_2) 0px 1px 2px;;
+
+    /*background: #ffffff;*/
+    /*box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;*/
+
+}
+
+.user_form div{
+    margin-top:2vw;
+}
+
+.submit{
+    margin-top:1vw;
+    border: none;
+    background-color: var(--main_color);
+    width: auto;
+    height:auto;
+    padding: 0.5vw 1vw;
+    border-radius:10px;
+}
+
+textarea{
+    resize: none;
+    overflow: auto;
+    width: 15vw;
+}
+
+label, .submit{
+    font-family: "Arial", sans-serif;
+}
+
