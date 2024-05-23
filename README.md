@@ -16,8 +16,13 @@ The version 1.0 has no schedule yet, however, there will be regular updates base
 
 ## TODO
 * New UI
-* Dark mode
+  * Change UI model 
+  * Convert alerts to pop-ups  
+  * Add dark mode
 * Bug fixing
+  * Fix "undefined" profile when not account is not connected
+* New stuff
+  * Adding news bar  
 
 ## Contact the developer
 
