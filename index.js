@@ -69,6 +69,19 @@ async function get_stones() {
 }
 
 
+async function get_news() {
+    try {
+        const response = await fetch("https://api.coingecko.com/api/v3/news"); // Fetch news from the API
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const newsData = await response.json();
+        return newsData;
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        return null;
+    }
+}
 
 
 http.createServer(async function (req, res) {
@@ -86,7 +99,10 @@ http.createServer(async function (req, res) {
             let result = await get_stones();
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(result));
-        
+        } else if (pathname === '/get_news' && method === 'GET') {
+            let news = await get_news(); 
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(news));
         } else if (pathname === '/get_user' && method === 'GET' && parsedUrl.searchParams.has('address')) {
             let user_address = parsedUrl.searchParams.get('address');
             let result = await get_user(user_address);
