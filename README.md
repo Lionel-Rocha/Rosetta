@@ -10,19 +10,15 @@
 
 Rosetta is a Twitter-like platform where people can write thoughts, opinions, anything, in a blockchain. Since posts - called "stones" in Rosetta - can't be deleted, the writings will stand there as long as the chain exists. The main objective is to keep records that last longer than a tweet, without much of the "social" aspect of social networks. Therefore, people can rely on the anonimity of the blockchain technology to share what they are thinking without the drawbacks of a user data selling driven platform.
 
-## When it's going to be released?
+Rosetta is a platform where people can write anything, anytime, provided that they've got some Sepolia ether and a MetaMask wallet. The contract itself is available at *0xF744073FDE4d0f259624e675620587F69efA924C* (at least for now - I'll add some stuff later, and then I'll update the contract address) and the code is at the *contracts* folder. Everything can be audited at any block explorer, but I personally use Blockscout (link [here](https://eth-sepolia.blockscout.com/address/0xF744073FDE4d0f259624e675620587F69efA924C)).
 
-The version 1.0 has no schedule yet, however, there will be regular updates based on how much time I've got to spend on the project. Hopefuly there'll be a stable release at late August.
+## Demo
+Rosetta live demo is available at: https://rosetta.netlify.app/
 
-## TODO
-* New UI
-  * Change UI model 
-  * Convert alerts to pop-ups  
-  * Add dark mode
-* Bug fixing
-  * Fix "undefined" profile when not account is not connected
-* New stuff
-  * Adding news bar  
+![image](https://github.com/Lionel-Rocha/Rosetta/assets/111009073/e351b9d3-682a-4bee-9361-d98c1cacac3c)
+
+## Found an issue?
+If you see any bugs or unexpected behavior, please open an issue. I'll try to fix it ASAP.
 
 ## Contact the developer
 
